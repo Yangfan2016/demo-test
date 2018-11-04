@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PSMC</title>
+</head>
+
+<body>
+    <h1>PSMC</h1>
+    <button id="btnLogin">登录</button>
+    <button id="btnClose">关闭</button>
+    <script>
+        window.__APP__ = {
+            ID: "PSMC",
+            KEY: "PSMC_KEY",
+            MODE: "DEV",
+            LANG: "zh-cn",
+        };
+    </script>
+    <script src="http://x.dev.cnki.net:8040/static/js/login.js"></script>
+    <script>
+        btnLogin.addEventListener("click", e => {
+            openLogin(true);
+        });
+        btnClose.addEventListener("click", e => {
+            openLogin(false);
+        });
+
+    </script>
+    <!-- <script>
+        const requestPost = ({ url, method, data, headers }) => {
+            headers = headers || {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            };
+            window.onmessage = null;
+            window.onmessage = ({ data }) => {
+                console.log(data);
+            };
+            // 首先创建一个用来发送数据的iframe.
+            const FID = 'iframePost_' + Date.now();
+            const iframe = document.createElement('iframe')
+            iframe.name = FID;
+            iframe.style.display = 'none'
+            document.body.appendChild(iframe)
+            const form = document.createElement('form')
+            const node = document.createElement('input')
+            // 注册iframe的load事件处理程序,如果你需要在响应返回时执行一些操作的话.
+            iframe.addEventListener('load', function (e) {
+                iframe.remove();
+            })
+
+            form.action = url
+            // 在指定的iframe中执行form
+            form.target = iframe.name
+            form.method = method || 'GET';
+            form.enctype = headers['Content-Type'];
+            for (let name in data) {
+                node.name = name
+                node.value = data[name].toString()
+                form.appendChild(node.cloneNode())
+            }
+            // 表单元素需要添加到主文档中.
+            form.style.display = 'none'
+            document.body.appendChild(form)
+            form.submit()
+
+            // 表单提交后,就可以删除这个表单,不影响下次的数据发送.
+            document.body.removeChild(form)
+        }
+        // 使用方式
+        requestPost({
+            url: 'http://x.dev.cnki.net:8040/ip2',
+            data: {
+                name: "666",
+                age: 100,
+            }
+        })
+        requestPost({
+            url: 'http://x.dev.cnki.net:8040/add2',
+            method: "POST",
+            data: {
+                name: "555",
+                age: 100,
+            }
+        })
+    </script> -->
+</body>
+
+</html>

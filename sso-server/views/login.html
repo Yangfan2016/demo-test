@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>login</title>
+</head>
+
+<body>
+    <h2>sso-login</h2>
+    <script src="/static/js/axios.min.js"></script>
+    <script>
+        // get setting
+        window.SETTING = JSON.parse(decodeURIComponent(location.search.slice(1)));
+
+        window.addEventListener("message", function ({ data }) {
+            let msg=data;
+            // ajax
+            if (msg.type === "ajax") {
+                axios(msg.detail).then(({ data }) => {
+                    let body=data;
+                    top.postMessage({
+                        url:msg.detail.url,
+                        status:"resolved",
+                        result:body,
+                    }, SETTING.origin);
+                }).catch(err=>{
+                    top.postMessage({
+                        url:msg.detail.url,
+                        status:"rejected",
+                        message:err.toString(),
+                    }, SETTING.origin);
+                });
+            }
+        });
+
+    </script>
+</body>
+
+</html>
