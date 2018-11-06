@@ -1,12 +1,12 @@
 var MAP = {
     "DEV": {
-        URL_LOGIN_PAGE: "http://z.dev.cnki.net:8040",
+        URL_LOGIN_PAGE: "http://x.d.c.n:8040",
     },
     "TEST": {
-        URL_LOGIN_PAGE: "http://ztest.cnki.net:8040",
+        URL_LOGIN_PAGE: "http://x.t.c.n:8040",
     },
     "PROD": {
-        URL_LOGIN_PAGE: "http://z.cnki.net:8040",
+        URL_LOGIN_PAGE: "http://x.c.n:8040",
     },
 };
 var iframe = document.createElement("iframe");
