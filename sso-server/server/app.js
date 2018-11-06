@@ -68,5 +68,5 @@ app.post("/add2", function (req, res) {
 });
 
 app.listen(PORT);
-console.log(`http://x.dev.cnki.net:${PORT}`);
+console.log(`http://x.c.n:${PORT}`);
 
