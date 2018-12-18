@@ -1,4 +1,4 @@
-// 实现 ECMA-262, Edition 5, 15.4.4.19
+
 // 参考: http://es5.github.com/#x15.4.4.19
 ; (function (window, $, undefined) {
     // helpers
