@@ -18,7 +18,7 @@
                         set(v) {
                             if (typeof v === "function") {
                                 xhr[attr]=function () {
-                                    //if(typeof proxyHook[attr] === "function" && proxyHook[attr].apply(xhr, [...arguments]) return;
+                                    if(typeof proxyHook[attr] === "function" && proxyHook[attr].apply(xhr, [...arguments])) return;
                                     v.apply(xhr, [...arguments]);
                                 };
                             } else {
